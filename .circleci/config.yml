@@ -28,7 +28,8 @@ jobs:
       - run:
           name: Run lint
           command: |
-            source .devops/scipts/activate
+            source .devops/bin/activate
+            pwd
             make lint 
 
 
