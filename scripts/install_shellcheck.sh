@@ -6,9 +6,11 @@ ARCH=$(uname -m)
 COMMAND="shellcheck"
 SHELLCHECK_FILE=https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-${VERSION}.${OS}.${ARCH}.tar.xz
 
+echo "in here"
+
 test -e ./scripts/${COMMAND} ||
   {
-    sudo wget -qO- "${SHELLCHECK_FILE}" | tar xJC scripts
+    wget -qO- "${SHELLCHECK_FILE}" | tar xJC scripts
     mv ./scripts/${COMMAND}-${VERSION}/${COMMAND} ./scripts
     chmod +x ./scripts/${COMMAND}
     rm -r ./scripts/${COMMAND}-${VERSION}
