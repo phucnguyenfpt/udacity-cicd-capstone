@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 OS=$(uname)
-VERSION="v1.22.1"
+VERSION="v2.10.0"
 HADOLINT_FILE=https://github.com/hadolint/hadolint/releases/download/${VERSION}/hadolint-${OS}-x86_64
 
 test -e ./scripts/hadolint ||
