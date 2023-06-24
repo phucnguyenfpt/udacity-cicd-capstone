@@ -6,7 +6,6 @@ ARCH=$(uname -m)
 COMMAND="shellcheck"
 SHELLCHECK_FILE=https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-${VERSION}.${OS}.${ARCH}.tar.xz
 
-echo "in here"
 
 test -e ./scripts/${COMMAND} ||
   {

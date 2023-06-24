@@ -19,12 +19,15 @@ install:
 	echo "Installing: shellcheck"
 	./scripts/install_shellcheck.sh
 	echo
+	chmod +x ./scripts/install_hadolint.sh
 	echo "Installing: hadolint"
 	./scripts/install_hadolint.sh
 	echo
+	chmod +x ./scripts/install_kubectl.sh
 	echo "Installing: kubectl"
 	./scripts/install_kubectl.sh
 	echo
+	chmod +x ./scripts/install_eksctl.sh
 	echo "Installing: eksctl"
 	./scripts/install_eksctl.sh
 
