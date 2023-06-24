@@ -2,7 +2,7 @@
 
 OS=$(uname)
 VERSION="v2.10.0"
-HADOLINT_FILE=https://github.com/hadolint/hadolint/releases/download/${VERSION}/hadolint-${OS}-x86_64
+HADOLINT_FILE=https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
 
 test -e ./scripts/hadolint ||
   {
