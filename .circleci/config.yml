@@ -37,18 +37,4 @@ jobs:
 workflows:
   default:
     jobs:
-      - init        
-      - docker/publish:
-          matrix:
-            parameters:
-              image: [toliv22/capstone]
-              path: [capstone]
-              docker-context: [capstone]
-              deploy: [true]
-              # We publish two images with different version tags: 
-              # - numbered version
-              # - "latest"
-              # tag: ['capstone/v1.0.0', 'latest']
-              tag: ['capstone/v1.0.0', 'latest']
-              update-description: [true]    
-          requires: [init]
+      - init
