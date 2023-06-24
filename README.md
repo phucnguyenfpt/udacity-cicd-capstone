@@ -1,15 +1,8 @@
-## Load Balancer Endpoint
-http://a7fc107d6227e435bbdcb554906f0fb6-1219523202.us-east-1.elb.amazonaws.com/
-
-## Authors
-
-- [@tuanpa2295](https://www.github.com/tuanpa2295)
-
 ## Badges
 
 
 ### CircleCI Status
-[![<CircleCI>](https://circleci.com/gh/tuanpa2295/udacity-cloud-devops-capstone.svg?style=svg)](https://github.com/tuanpa2295/udacity-cloud-devops-capstone)
+[![<CircleCI>](https://circleci.com/gh/hoai97nam/udacity-capstone.svg?style=svg)](https://github.com/hoai97nam/udacity-capstone)
 
 ### License
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
@@ -60,8 +53,12 @@ To run this project, you will need to add the following environment variables to
 | `Makefile` | Build file of the project |
 | `requirements.txt` | Python required libraries |
 | `scripts/run-docker.sh` | Shell script to run docker container |
+| `scripts/build-docker.sh` | Shell script to build docker container |
 | `scripts/run-kubernetes.sh` | Shell script to deploy docker container |
-| `scripts/.create-cluster.sh` | Shell script to manually create EKS cluster |
+| `scripts/install_eksctl.sh` | Shell script to manually install eksctl |
+| `scripts/install_hadolint.sh` | Shell script to manually install hadolint |
+| `scripts/install_kubectl.sh` | Shell script to manually install kubectl |
+| `scripts/install_shellcheck.sh` | Shell script to manually install shellcheck |
 | `scripts/create-kubeconfig.sh` | Shell script to create kubeconfig |
 | `scripts/create-stack.sh` | Shell script to create AWS CloudFormation stack|
 | `scripts/update-stack.sh` | Shell script to update AWS CloudFormation stack|
@@ -75,40 +72,15 @@ To run this project, you will need to add the following environment variables to
 * Run `./create-stack.sh capstone-eks eks-cluster.yml eks-cluster-params.json` to create EKS cluster
 * Run `./create-stack.sh capstone-nodegroup aws-eks-nodegroup.yml aws-eks-nodegroup-params.json` to create EKS nodes group
 * Run `aws eks list-clusters --profile udacity` to see output like below
-`{
-    "clusters": [
-        "CapstoneEKS-0J5F5Y6TBD53"
-    ]
-}` to get cluster name
 * Replace the line `- rolearn: arn:aws:iam::876162603122:role/capstone-node-group-InstanceRole-1H3AEXO3XOL4E` in `aws-authen-cm.yml`
 * Replace cluster name to the line `123: cluster-name: CapstoneEKS-0J5F5Y6TBD53` in `./circleci/config.yml`.
 * Configure CircleCI project for the github repository
 * Done!
 
-* Some kubectl commands to check k8s resources
-```bash
-    # Fet k8s configs
-    aws eks --region us-east-1 update-kubeconfig --name CapstoneEKS-ZIuUrjFd62pq
-    # Switch context
-    kubectl config use-context arn:aws:eks:us-east-1:988918897812:cluster/CapstoneEKS-ZIuUrjFd62pq
-    # Manually apply k8s resource
-    kubectl apply -f aws-authen-cm.yml
-    # See ndoes in cluster
-    kubectl get nodes
-    # See running pods
-    kubectl get pods
-    # See services
-    kubectl get services
-    # View logs of a pod (when checking incoming request)
-    kubectl logs <POD_NAME>
-    # Port forward to forward a port in pod to host port (format: <HOST_PORT><POD_PORT>)
-    kubectl port-forward <HOST_PORT><POD_PORT>
-```
 ## Run Steps For Manual Deployment
 * Run `./scripts/create-cluster.sh`
 * Run `./scripts/create-kubeconfig.sh`
 * Run `./scripts/run-docker.sh`
 * Run `./scripts/run-kubernetes.sh`
 
-Remember to replace names of DockerHub repository & cluster name to the script file before you run.
 
