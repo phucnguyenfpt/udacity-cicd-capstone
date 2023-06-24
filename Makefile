@@ -15,7 +15,6 @@ install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
 	echo
-	chmod 700 ./scripts
 	echo "Installing: shellcheck"
 	./scripts/install_shellcheck.sh
 	echo

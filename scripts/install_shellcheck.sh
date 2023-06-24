@@ -8,7 +8,7 @@ SHELLCHECK_FILE=https://github.com/koalaman/shellcheck/releases/download/stable/
 
 test -e ./scripts/${COMMAND} ||
   {
-    wget -qO- "${SHELLCHECK_FILE}" | tar xJC scripts
+    sudo wget -qO- "${SHELLCHECK_FILE}" | tar xJC scripts
     mv ./scripts/${COMMAND}-${VERSION}/${COMMAND} ./scripts
     chmod +x ./scripts/${COMMAND}
     rm -r ./scripts/${COMMAND}-${VERSION}
