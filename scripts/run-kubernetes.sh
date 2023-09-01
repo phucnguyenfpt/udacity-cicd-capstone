@@ -4,7 +4,7 @@
 
 # Step 1:
 # This is your Docker ID/path
-dockerpath="phamanhtuan221995/ml-classification"
+dockerpath="phucnguyenfpt/ml-classification"
 
 # Step 2
 # Run the Docker Hub container with kubernetes
